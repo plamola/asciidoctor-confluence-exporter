@@ -16,9 +16,9 @@ This tool requires the username and password of a valid user to access the Confl
 
 == Docker Image
 
-The `Dockerfile` bundled is used to create the `vshn/asciidoctor-confluence-exporter` image, which can be used as follows:
+The `Dockerfile` bundled is used to create the `plamola/asciidoctor-confluence-exporter` image, which can be used as follows:
 
-`docker run --rm --env-file credentials --user "$(id -u)" --volume "${PWD}":/data vshn/asciidoctor-confluence-exporter:1.0 --wiki=https://wiki.url --output=output 123 45 6789 --verbose`
+`docker run --rm --env-file credentials --user "$(id -u)" --volume "${PWD}":/data plamola/asciidoctor-confluence-exporter:1.0 --wiki=https://wiki.url --output=output 123 45 6789 --verbose --titles --recursive`
 
 In the command above, "123", "45" and "6789" are valid page IDs in the Confluence wiki located in "wiki.url". The `--help` parameter provides more information about the use of the tool.
 
@@ -29,3 +29,11 @@ Also, in the example above, Docker passes the environment variables through a fi
 CONFLUENCE_USERNAME=your.username
 CONFLUENCE_PASSWORD=y0uR.p@ssw0Rd
 ----
+
+## Note:
+
+This for fork has some additional functionality.
+
+The --titles parameter allows for documents to be stored with the Confluence document title, instead of the confluence page id.
+
+The --recursive parameter will also grab all children of the supplied page ids. This allows for exporting whole wiki tree structures.
