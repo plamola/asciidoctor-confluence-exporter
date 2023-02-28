@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag plamola/asciidoctor-confluence-exporter:(date +%s)
+      run: docker build . --file Dockerfile --tag plamola/asciidoctor-confluence-exporter:$(date +%s)
